@@ -9,13 +9,14 @@ function count_files() {
 		then
 			echo "Congrats! Correct number of files"
 			exit
-		elif [[ $answer -gt $filneumbers ]]
+		elif [[ ! $answer -eq $filneumbers ]]
 		then
-			echo "Your guess is greater than the actual number of files"
-			exit
-		else
-			echo "Your guess is less than the actual number of files"
-			exit
+			if [[ $answer -lt $filenumbers ]]
+			then
+				echo "Your guess is less than the actual number of files"
+			else
+				echo "Your guess is greater than the actual number of files"
+			fi
 		fi
 	done
 }
